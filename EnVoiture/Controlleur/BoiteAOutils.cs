@@ -34,8 +34,7 @@ namespace EnVoiture.Controlleur
                 GenerateurVoiture.DessinerSurBoite(e.Graphics);
 
             });
-            MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick);
-            //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
+            MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick); 
         }
 
         private void RouteBouton_MouseClick(object sender, MouseEventArgs e)
