@@ -4,7 +4,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 using EnVoiture.Controlleur;
+using EnVoiture.Modele;
 using EnVoiture.Vue;
 
 namespace EnVoiture.Controlleur
@@ -18,6 +22,10 @@ namespace EnVoiture.Controlleur
         private Point _position;
         private EnVoiturePanel _panel;
 
+        private string _chemin = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\EnVoiture";
+        private string _cheminPiece;
+        private string _version = "0.13";
+
         /// <summary>
         /// Constructeur par défaut
         /// </summary>
@@ -26,6 +34,8 @@ namespace EnVoiture.Controlleur
         {
             this._position = position;
             this._panel = panel;
+            this._cheminPiece = _chemin + string.Format("\\{0}-{1}.ev", _position.X, _position.Y);
+            Charger();
         }
 
         /// <summary>
@@ -33,7 +43,11 @@ namespace EnVoiture.Controlleur
         /// </summary>
         public void Sauvegarder()
         {
-            throw new NotImplementedException();
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(_cheminPiece, FileMode.Create, FileAccess.Write, FileShare.None);
+            Serialisableur s = new Serialisableur(_version, _routes);
+            formatter.Serialize(stream, _routes);
+            stream.Close();
         }
 
         /// <summary>
@@ -41,8 +55,31 @@ namespace EnVoiture.Controlleur
         /// </summary>
         /// <param name="position">La position du paquet</param>
         /// <returns>Le paquet à la position demandée</returns>
-        public static Piece Charger(Point position)
+        public void Charger()
         {
+            if (!Directory.Exists(_chemin))
+                Directory.CreateDirectory(_chemin);
+            if (File.Exists(_cheminPiece))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream(_cheminPiece, FileMode.Open, FileAccess.Read, FileShare.Read);
+                Serialisableur s = formatter.Deserialize(stream) as Serialisableur;
+                _routes = s.Routes;
+                stream.Close();
+            }
+            else
+            {
+                Sauvegarder();
+                Generer();
+            }
+        }
+
+        /// <summary>
+        /// Génère les routes.
+        /// </summary>
+        private void Generer()
+        {
+            //Sauvegarder();
             throw new NotImplementedException();
         }
     }

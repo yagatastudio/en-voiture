@@ -9,6 +9,7 @@ using EnVoiture.Modele;
 
 namespace EnVoiture.Vue
 {
+    [Serializable]
     public class RouteWidget
     {
         public static int TAILLE = 100;
