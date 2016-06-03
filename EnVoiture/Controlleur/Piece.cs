@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EnVoiture.Controller;
+using EnVoiture.Vue;
 
-namespace EnVoiture.Modele
+namespace EnVoiture.Controller
 {
     /// <summary>
     /// Classe représentant une pièce (chunk) de 16x16
     /// </summary>
     public class Piece
     {
-        private Route[] _routes = new Route[16*16];
+        private RouteWidget[] _routes = new RouteWidget[16*16];
         private Point _position;
         private EnVoiturePanel _panel;
 
