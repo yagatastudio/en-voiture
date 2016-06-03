@@ -68,5 +68,14 @@ namespace EnVoiture.Vue
         {
             g.DrawImage(_textureVoiture, Voiture.Position);
         }
+
+
+        internal static void DessinerSurBoite(Graphics g)
+        {
+           
+        }
+
+
+        
     }
 }

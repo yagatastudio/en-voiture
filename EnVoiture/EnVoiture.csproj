@@ -50,6 +50,7 @@
     </Compile>
     <Compile Include="Modele\Obstacle.cs" />
     <Compile Include="Modele\Voiture.cs" />
+    <Compile Include="Vue\GenerateurVoiture.cs" />
     <Compile Include="Vue\VoitureWidget.cs" />
     <Compile Include="Controlleur\EnVoitureForm.cs">
       <SubType>Form</SubType>

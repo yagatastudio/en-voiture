@@ -29,7 +29,11 @@ namespace EnVoiture.Controller
         {
             InitializeComponent();
             GenerateurWidget = new GenerateurWidget(new Generateur());
-            Paint += new PaintEventHandler((source, e) => { GenerateurWidget.DessinerSurOrigine(e.Graphics); });
+            Paint += new PaintEventHandler((source, e) => {
+                GenerateurWidget.DessinerSurOrigine(e.Graphics);
+                GenerateurVoiture.DessinerSurBoite(e.Graphics);
+
+            });
             MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick);
             //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
         }
