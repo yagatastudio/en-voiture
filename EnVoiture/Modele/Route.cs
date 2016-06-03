@@ -248,11 +248,7 @@ namespace EnVoiture.Modele
             Route clone = new Route();
             clone.Position = new Point(this.Position.X, this.Position.Y);
             clone.Taille = new Size(this.Taille.Width, this.Taille.Height);
-            clone.DictionnaireObstacles = new Dictionary<Orientation, Obstacle>();
-            foreach (Orientation orientation in this.DictionnaireObstacles.Keys)
-            {
-                clone.DictionnaireObstacles.Add(orientation, this.DictionnaireObstacles[orientation]);
-            }
+            clone.DictionnaireObstacles = new Dictionary<Orientation, Obstacle>(DictionnaireObstacles);
             return clone;
         }
     }
