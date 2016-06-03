@@ -1,4 +1,4 @@
-﻿namespace EnVoiture.Controller
+﻿namespace EnVoiture.Controlleur
 {
     partial class EnVoitureForm
     {
@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.alignment = new System.Windows.Forms.TableLayoutPanel();
-            this.enVoiturePanel = new EnVoiture.Controller.EnVoiturePanel();
-            this.toolsBox = new EnVoiture.Controller.BoiteAOutils();
+            this.enVoiturePanel = new EnVoiture.Controlleur.EnVoiturePanel();
+            this.toolsBox = new EnVoiture.Controlleur.BoiteAOutils();
             this.alignment.SuspendLayout();
             this.SuspendLayout();
             // 

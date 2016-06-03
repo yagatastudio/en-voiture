@@ -4,10 +4,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EnVoiture.Controller;
+using EnVoiture.Controlleur;
 using EnVoiture.Vue;
 
-namespace EnVoiture.Controller
+namespace EnVoiture.Controlleur
 {
     /// <summary>
     /// Classe représentant une pièce (chunk) de 16x16
