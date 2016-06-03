@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EnVoiture.Controller;
 
 namespace EnVoiture.Modele
 {
@@ -14,10 +15,16 @@ namespace EnVoiture.Modele
     {
         private Route[] _routes = new Route[16*16];
         private Point _position;
+        private EnVoiturePanel _panel;
 
-        public Piece(Point position)
+        /// <summary>
+        /// Constructeur par défaut
+        /// </summary>
+        /// <param name="position"></param>
+        public Piece(Point position, EnVoiturePanel panel)
         {
-            _position = position;
+            this._position = position;
+            this._panel = panel;
         }
 
         /// <summary>

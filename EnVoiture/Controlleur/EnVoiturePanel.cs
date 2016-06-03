@@ -27,6 +27,7 @@ namespace EnVoiture.Controller
         private Region _region;
 
         private List<RouteWidget> Routes;
+        private List<Piece> _pieces = new List<Piece>();
 
         public BoiteAOutils BoiteAOutils
         {
