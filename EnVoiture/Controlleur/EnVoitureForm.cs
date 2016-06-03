@@ -7,7 +7,7 @@ using EnVoiture.Modele;
 using EnVoiture.Vue;
 using Orientation = EnVoiture.Modele.Orientation;
 
-namespace EnVoiture.Controller
+namespace EnVoiture.Controlleur
 {
     /// <summary>
     /// Classe principale du projet.
