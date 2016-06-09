@@ -45,8 +45,7 @@ namespace EnVoiture.Controlleur
         {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(_cheminPiece, FileMode.Create, FileAccess.Write, FileShare.None);
-            Serialisableur s = new Serialisableur(_version, _routes);
-            formatter.Serialize(stream, _routes);
+            formatter.Serialize(stream, new Serialisableur(_version, _routes));
             stream.Close();
         }
 
@@ -63,14 +62,19 @@ namespace EnVoiture.Controlleur
             {
                 IFormatter formatter = new BinaryFormatter();
                 Stream stream = new FileStream(_cheminPiece, FileMode.Open, FileAccess.Read, FileShare.Read);
-                Serialisableur s = formatter.Deserialize(stream) as Serialisableur;
-                _routes = s.Routes;
+                object o = formatter.Deserialize(stream);
+
+                if (o is Serialisableur)
+                {
+                    Serialisableur s = o as Serialisableur;
+                    _routes = s.Routes;
+                }
                 stream.Close();
             }
             else
             {
                 Sauvegarder();
-                Generer();
+                //Generer();
             }
         }
 
