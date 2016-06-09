@@ -51,6 +51,7 @@ namespace EnVoiture.Controlleur
             this.voiture = (_usagers[0] as VoitureWidget).Voiture;
             BoiteAOutils = new BoiteAOutils();
             this.Routes = new List<RouteWidget>();
+            /*
             foreach (Route route in Route.Generer(6,5))
             {
                 Routes.Add(new RouteWidget(route));
@@ -60,6 +61,8 @@ namespace EnVoiture.Controlleur
             {
                 Routes.Add(new RouteWidget(route));
             }
+            */
+            _pieces.Add(new Piece(new Point(0, 0), this));
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
             InitializeComponent();
         }
