@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using System.Drawing;
 using EnVoiture.Modele;
+using System.Collections.Generic;
 
 namespace EnVoiture.Vue
 {
@@ -13,6 +14,7 @@ namespace EnVoiture.Vue
     {
         private static Random _random = new Random();
         private Bitmap _textureVoiture;
+        
 
         /// <summary>
         /// La voiture liée à cet afficheur.
@@ -64,9 +66,20 @@ namespace EnVoiture.Vue
             this.Voiture = new Voiture(x, y, largeur, hauteur, vMax);
         }
 
+        public VoitureWidget(Modele.Voiture voiture)
+        {
+            
+            this.Voiture = voiture;
+        }
+
         public override void Dessiner(Graphics g)
         {
             g.DrawImage(_textureVoiture, Voiture.Position);
         }
+
+        /*public void DessinerSurGenerateur(Graphics g, int indexCouleur)
+        {
+            g.DrawImage(_textureChangeable[indexCouleur], Voiture.Position);
+        }*/
     }
 }

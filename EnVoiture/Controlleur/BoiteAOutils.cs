@@ -30,13 +30,19 @@ namespace EnVoiture.Controlleur
         {
             InitializeComponent();
             GenerateurWidget = new GenerateurWidget(new Generateur());
-            GenerateurVoitureWidget = new GenerateurVoitureWidget(new GenerateurVoiture());
-            Paint += new PaintEventHandler((source, e) => {
+            GenerateurVoitureWidget = new GenerateurVoitureWidget(new GenerateurVoiture(Properties.Resources.voiture_bleue));
+            Paint += new PaintEventHandler((source, e) =>
+            {
                 GenerateurWidget.DessinerSurOrigine(e.Graphics);
                 GenerateurVoitureWidget.DessinerSurBoite(e.Graphics);
-
             });
-            MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick); 
+            MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick);
+            MouseClick += new MouseEventHandler(this.VoitureBouton_MouseClick);
+        }
+
+        private void VoitureBouton_MouseClick(object sender, MouseEventArgs e)
+        {
+            GenerateurVoitureWidget.GenerateurVoiture.ChangerVoiture();
         }
 
         private void RouteBouton_MouseClick(object sender, MouseEventArgs e)
