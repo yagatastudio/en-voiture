@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenerateurVoiture.cs" />
+    <Compile Include="Modele\GenerateurVoiture.cs" />
     <Compile Include="Modele\Generateur.cs" />
     <Compile Include="Controlleur\BoiteAOutils.cs">
       <SubType>UserControl</SubType>
@@ -53,6 +53,7 @@
     <Compile Include="Controlleur\Piece.cs" />
     <Compile Include="Modele\Serialisableur.cs" />
     <Compile Include="Modele\Voiture.cs" />
+    <Compile Include="Vue\GenerateurVoitureWidget.cs" />
     <Compile Include="Vue\VoitureWidget.cs" />
     <Compile Include="Controlleur\EnVoitureForm.cs">
       <SubType>Form</SubType>

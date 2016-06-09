@@ -13,6 +13,7 @@ namespace EnVoiture.Controlleur
     public class BoiteAOutils : UserControl
     {
         public GenerateurWidget GenerateurWidget { get; private set; }
+        public GenerateurVoitureWidget GenerateurVoitureWidget { get; private set; }
 
         public Route RouteSelectionnee
         {
@@ -29,9 +30,10 @@ namespace EnVoiture.Controlleur
         {
             InitializeComponent();
             GenerateurWidget = new GenerateurWidget(new Generateur());
+            GenerateurVoitureWidget = new GenerateurVoitureWidget(new GenerateurVoiture());
             Paint += new PaintEventHandler((source, e) => {
                 GenerateurWidget.DessinerSurOrigine(e.Graphics);
-                GenerateurVoiture.DessinerSurBoite(e.Graphics);
+                GenerateurVoitureWidget.DessinerSurBoite(e.Graphics);
 
             });
             MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick); 

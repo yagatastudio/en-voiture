@@ -16,7 +16,6 @@ namespace EnVoiture.Vue
         const int MARGEX = 0;
         const int MARGEY = 0;
 
-
         /// accesseurs du générateur 
         public Generateur Generateur { get; set; }
 
