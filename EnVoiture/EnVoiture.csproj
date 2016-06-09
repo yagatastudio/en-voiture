@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerateurVoiture.cs" />
     <Compile Include="Modele\Generateur.cs" />
     <Compile Include="Controlleur\BoiteAOutils.cs">
       <SubType>UserControl</SubType>
