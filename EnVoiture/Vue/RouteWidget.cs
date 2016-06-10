@@ -1,5 +1,4 @@
-﻿using EnVoiture.Modele;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +8,7 @@ using EnVoiture.Modele;
 
 namespace EnVoiture.Vue
 {
+    [Serializable]
     public class RouteWidget
     {
         public static int TAILLE = 100;

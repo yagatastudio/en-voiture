@@ -44,12 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modele\GenerateurVoiture.cs" />
     <Compile Include="Modele\Generateur.cs" />
     <Compile Include="Controlleur\BoiteAOutils.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modele\Obstacle.cs" />
+    <Compile Include="Controlleur\Piece.cs" />
+    <Compile Include="Modele\Serialisableur.cs" />
     <Compile Include="Modele\Voiture.cs" />
+    <Compile Include="Vue\GenerateurVoitureWidget.cs" />
     <Compile Include="Vue\VoitureWidget.cs" />
     <Compile Include="Controlleur\EnVoitureForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\voiture_rouge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\voiture_violette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

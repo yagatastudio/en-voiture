@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using System.Drawing;
 using EnVoiture.Modele;
+using System.Collections.Generic;
 
 namespace EnVoiture.Vue
 {
@@ -11,7 +12,9 @@ namespace EnVoiture.Vue
     /// </summary>
     public class VoitureWidget : UsagerWidget
     {
+        private static Random _random = new Random();
         private Bitmap _textureVoiture;
+        
 
         /// <summary>
         /// La voiture liée à cet afficheur.
@@ -23,7 +26,7 @@ namespace EnVoiture.Vue
         /// </summary>
         private VoitureWidget()
         {
-            switch (new Random().Next(3))
+            switch (_random.Next(4))
             {
                 case 0:
                     this._textureVoiture = Properties.Resources.voiture_bleue;
@@ -34,11 +37,12 @@ namespace EnVoiture.Vue
                 case 2:
                     this._textureVoiture = Properties.Resources.voiture_rouge;
                     break;
+                case 3:
+                    this._textureVoiture = Properties.Resources.voiture_violette;
+                    break;
                 default:
                     break;
             }
-            // Pour que le random soit efficace
-            Thread.Sleep(50);
         }
 
         /// <summary>
@@ -62,9 +66,20 @@ namespace EnVoiture.Vue
             this.Voiture = new Voiture(x, y, largeur, hauteur, vMax);
         }
 
+        public VoitureWidget(Modele.Voiture voiture)
+        {
+            
+            this.Voiture = voiture;
+        }
+
         public override void Dessiner(Graphics g)
         {
             g.DrawImage(_textureVoiture, Voiture.Position);
         }
+
+        /*public void DessinerSurGenerateur(Graphics g, int indexCouleur)
+        {
+            g.DrawImage(_textureChangeable[indexCouleur], Voiture.Position);
+        }*/
     }
 }

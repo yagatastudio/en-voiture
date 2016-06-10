@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EnVoiture.Controller
+namespace EnVoiture.Controlleur
 {
     public class BoiteAOutils : UserControl
     {
         public GenerateurWidget GenerateurWidget { get; private set; }
+        public GenerateurVoitureWidget GenerateurVoitureWidget { get; private set; }
 
         public Route RouteSelectionnee
         {
@@ -29,9 +30,19 @@ namespace EnVoiture.Controller
         {
             InitializeComponent();
             GenerateurWidget = new GenerateurWidget(new Generateur());
-            Paint += new PaintEventHandler((source, e) => { GenerateurWidget.DessinerSurOrigine(e.Graphics); });
+            GenerateurVoitureWidget = new GenerateurVoitureWidget(new GenerateurVoiture(Properties.Resources.voiture_bleue));
+            Paint += new PaintEventHandler((source, e) =>
+            {
+                GenerateurWidget.DessinerSurOrigine(e.Graphics);
+                GenerateurVoitureWidget.DessinerSurBoite(e.Graphics);
+            });
             MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick);
-            //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
+            MouseClick += new MouseEventHandler(this.VoitureBouton_MouseClick);
+        }
+
+        private void VoitureBouton_MouseClick(object sender, MouseEventArgs e)
+        {
+            GenerateurVoitureWidget.GenerateurVoiture.ChangerVoiture();
         }
 
         private void RouteBouton_MouseClick(object sender, MouseEventArgs e)
