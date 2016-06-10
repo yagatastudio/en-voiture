@@ -44,13 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modele\Couleur.cs" />
     <Compile Include="Modele\GenerateurVoiture.cs" />
     <Compile Include="Modele\Generateur.cs" />
     <Compile Include="Controlleur\BoiteAOutils.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modele\Obstacle.cs" />
     <Compile Include="Controlleur\Piece.cs" />
+    <Compile Include="Modele\OngletBoiteAOutil.cs" />
     <Compile Include="Modele\Serialisableur.cs" />
     <Compile Include="Modele\Voiture.cs" />
     <Compile Include="Vue\GenerateurVoitureWidget.cs" />

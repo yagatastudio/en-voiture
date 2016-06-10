@@ -10,8 +10,10 @@ namespace EnVoiture.Vue
 {
     public class GenerateurVoitureWidget
     {
+        const int TAILLEX = 100;
+        const int TAILLEY = 100;
         int iPosX = 45;
-        int iPosY = 140;
+        int iPosY = 35;
         List<VoitureWidget> Voitures = new List<VoitureWidget>();
 
 
@@ -29,7 +31,7 @@ namespace EnVoiture.Vue
         /// <param name="g"></param>
         public void DessinerSurBoite(Graphics g)
         {
-            g.FillRectangle(Brushes.Black, new Rectangle(0, 100, 100, 100));
+            g.FillRectangle(Brushes.Black, new Rectangle(0, 0, TAILLEX, TAILLEY));
             g.DrawImage(GenerateurVoiture.VoitureImage, new Point(iPosX, iPosY));
 
         }

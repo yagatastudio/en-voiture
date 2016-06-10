@@ -80,7 +80,8 @@ namespace EnVoiture.Controlleur
             {
                 way.Dessiner(g);
             }
-            if (!BoiteAOutils.Visible)
+
+            if (BoiteAOutils.SelectedTab == BoiteAOutils.TabPages["OngletVoiture"] || !BoiteAOutils.Visible)
             {
                 foreach (UsagerWidget user in _usagers)
                 {
@@ -194,7 +195,7 @@ namespace EnVoiture.Controlleur
             }
 
             // creation de la route si en mode edition
-            if (BoiteAOutils.Visible)
+            if (BoiteAOutils.SelectedTab == BoiteAOutils.TabPages["OngletRoute"])
             {
                 Route w = Route.VersPositionCase(e.X, e.Y, BoiteAOutils.RouteSelectionnee);
                 if (w != null)
@@ -207,6 +208,16 @@ namespace EnVoiture.Controlleur
                     }
                     routes.Add(new RouteWidget(w));
                     Routes = routes;
+                }
+            }
+            else
+            {
+                if (BoiteAOutils.SelectedTab == BoiteAOutils.TabPages["OngletVoiture"])
+                {
+                    Point p = PointToClient(Cursor.Position);
+                    VoitureWidget v = new VoitureWidget(p.X, p.Y, 10, 20, 80);
+                    v.couleur = BoiteAOutils.GenerateurVoitureWidget.GenerateurVoiture.getCouleur();
+                    _usagers.Add(v);
                 }
             }
         }

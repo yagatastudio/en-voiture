@@ -13,7 +13,7 @@ namespace EnVoiture.Vue
     public class VoitureWidget : UsagerWidget
     {
         private static Random _random = new Random();
-        private Bitmap _textureVoiture;
+        public Couleur couleur { get; set; }
         
 
         /// <summary>
@@ -29,16 +29,16 @@ namespace EnVoiture.Vue
             switch (_random.Next(4))
             {
                 case 0:
-                    this._textureVoiture = Properties.Resources.voiture_bleue;
+                    this.couleur = Couleur.BLEU;
                     break;
                 case 1:
-                    this._textureVoiture = Properties.Resources.voiture_jaune;
+                    this.couleur = Couleur.JAUNE;
                     break;
                 case 2:
-                    this._textureVoiture = Properties.Resources.voiture_rouge;
+                    this.couleur = Couleur.ROUGE;
                     break;
                 case 3:
-                    this._textureVoiture = Properties.Resources.voiture_violette;
+                    this.couleur = Couleur.VIOLET;
                     break;
                 default:
                     break;
@@ -74,7 +74,26 @@ namespace EnVoiture.Vue
 
         public override void Dessiner(Graphics g)
         {
-            g.DrawImage(_textureVoiture, Voiture.Position);
+            Bitmap texture = null;
+            switch (couleur)
+            {
+                case Couleur.BLEU:
+                    texture = Properties.Resources.voiture_bleue;
+                    break;
+                case Couleur.JAUNE:
+                    texture = Properties.Resources.voiture_jaune;
+
+                    break;
+                case Couleur.ROUGE:
+                    texture = Properties.Resources.voiture_rouge;
+                    break;
+                case Couleur.VIOLET:
+                    texture = Properties.Resources.voiture_violette;
+                    break;
+                default:
+                    break;
+            }
+            g.DrawImage(texture, Voiture.Position);
         }
 
         /*public void DessinerSurGenerateur(Graphics g, int indexCouleur)
