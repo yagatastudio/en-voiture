@@ -195,7 +195,7 @@ namespace EnVoiture.Controlleur
             }
 
             // creation de la route si en mode edition
-            if (BoiteAOutils.SelectedTab == BoiteAOutils.TabPages["OngletRoute"])
+            if (BoiteAOutils.SelectedTab == BoiteAOutils.TabPages["OngletRoute"] && BoiteAOutils.Visible)
             {
                 Route w = Route.VersPositionCase(e.X, e.Y, BoiteAOutils.RouteSelectionnee);
                 if (w != null)
@@ -212,7 +212,7 @@ namespace EnVoiture.Controlleur
             }
             else
             {
-                if (BoiteAOutils.SelectedTab == BoiteAOutils.TabPages["OngletVoiture"])
+                if (BoiteAOutils.SelectedTab == BoiteAOutils.TabPages["OngletVoiture"] && BoiteAOutils.Visible)
                 {
                     Point p = PointToClient(Cursor.Position);
                     VoitureWidget v = new VoitureWidget(p.X, p.Y, 10, 20, 80);

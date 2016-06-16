@@ -12,7 +12,7 @@ namespace EnVoiture.Vue
     public class GenerateurVoiture
     {
         List<Bitmap> _textureChangeable = new List<Bitmap>();
-        int IndexCouleur=0;
+        int IndexCouleur = 0;
 
         public Voiture Voiture { get; set; }
         public Image VoitureImage { get; set; }
@@ -37,17 +37,16 @@ namespace EnVoiture.Vue
 
         public void ChangerVoiture()
         {
-            if (IndexCouleur > _textureChangeable.Count())
+            if (IndexCouleur >= _textureChangeable.Count()-1)
             {
                 IndexCouleur = 0;
-                IndexCouleur++;
+                this.VoitureImage = _textureChangeable[IndexCouleur];
             }
             else
             {
-                this.VoitureImage = _textureChangeable[IndexCouleur];
                 IndexCouleur++;
+                this.VoitureImage = _textureChangeable[IndexCouleur];
             }
-
         }
         public Couleur getCouleur()
         {
@@ -62,7 +61,7 @@ namespace EnVoiture.Vue
                 case 3:
                     return Couleur.VIOLET;
                 default:
-                    return Couleur.BLEU;;
+                    return Couleur.BLEU;
             }
         }
     }
